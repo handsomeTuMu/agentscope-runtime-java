@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ContainerCreateResult.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.client.container
+ *
+ * 容器创建结果模型，包含容器创建后的元信息（ID、端口映射等）。
+ */
+
 package io.agentscope.runtime.sandbox.manager.client.container;
 
 import java.util.ArrayList;

@@ -14,6 +14,18 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: SandboxService.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager
+ *
+ * 沙箱服务管理器 —— 沙箱基础设施的核心管理组件。
+ * 负责沙箱容器（Docker/AgentRun/FC）的创建、启动、停止、移除和状态查询，
+ * 以及通过沙箱客户端代理工具调用（listTools、callTool、addMcpServers）。
+ * 支持本地模式和远程模式（通过 RemoteHttpClient 代理调用远程沙箱服务）。
+ * 内置定时清理任务，自动回收过期的沙箱实例。
+ */
+
 package io.agentscope.runtime.sandbox.manager;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -52,29 +64,76 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 沙箱服务管理器 —— 沙箱基础设施的核心管理组件。
+ *
+ * <p>角色：作为整个沙箱系统的统一入口，负责管理所有沙箱实例的生命周期
+ * （创建、启动、停止、移除）和工具调用代理。它是连接 Runner/AgentHandler
+ * 与底层容器运行时（Docker/AgentRun/FC）之间的桥梁。</p>
+ *
+ * <p>职责：</p>
+ * <ul>
+ *   <li>容器生命周期管理：创建、启动、停止、移除沙箱容器</li>
+ *   <li>沙箱实例追踪：通过 SandboxMap 维护活跃沙箱的映射关系和引用计数</li>
+ *   <li>工具调用代理：通过 SandboxClient 代理工具列表查询和工具调用</li>
+ *   <li>MCP 服务器管理：向沙箱添加 MCP（Model Context Protocol）服务器配置</li>
+ *   <li>双模式支持：本地模式（直接操作容器）和远程模式（通过 HTTP 代理）</li>
+ *   <li>自动清理：定时扫描并回收 TTL 即将到期的沙箱</li>
+ *   <li>AgentBay 集成：支持 AgentBay 云端沙箱实例</li>
+ * </ul>
+ *
+ * <p>设计模式：</p>
+ * <ul>
+ *   <li>外观模式（Facade Pattern）—— 为复杂的沙箱管理子系统提供统一入口</li>
+ *   <li>代理模式 —— @RemoteWrapper 注解实现远程调用的透明代理</li>
+ *   <li>引用计数模式 —— 通过 refCount 管理共享沙箱的生命周期</li>
+ * </ul>
+ *
+ * <p>线程安全说明：SandboxMap 使用线程安全实现；定时清理任务在独立的守护线程中运行。</p>
+ */
 public class SandboxService implements AutoCloseable {
     private static final Logger logger = LoggerFactory.getLogger(SandboxService.class);
+    /** 管理器配置 */
     private final ManagerConfig managerConfig;
+    /** 容器客户端（Docker/AgentRun/FC），负责底层容器操作 */
     private BaseClient containerClient;
+    /** 沙箱映射表，维护沙箱 ID 到容器模型的映射 */
     private final SandboxMap sandboxMap;
+    /** 浏览器会话固定 ID */
     private static final String BROWSER_SESSION_ID = "123e4567-e89b-12d3-a456-426614174000";
+    /** 远程 HTTP 客户端，非 null 时表示运行在远程模式 */
     private final RemoteHttpClient remoteHttpClient;
+    /** AgentBay 客户端，用于管理 AgentBay 云端沙箱 */
     private AgentBayClient agentBayClient;
+    /** 定时清理执行器 */
     private ScheduledExecutorService cleanupExecutor;
+    /** 定时清理任务句柄 */
     private ScheduledFuture<?> cleanupFuture;
 
+    /**
+     * 构造函数。
+     * 根据配置初始化沙箱服务，如果配置了 baseUrl 则启用远程模式。
+     *
+     * @param managerConfig 管理器配置
+     */
     public SandboxService(ManagerConfig managerConfig) {
         this.managerConfig = managerConfig;
         this.sandboxMap = managerConfig.getSandboxMap();
         if (managerConfig.getBaseUrl() != null && !managerConfig.getBaseUrl().isEmpty()) {
+            // 远程模式：通过 HTTP 客户端代理所有操作
             this.remoteHttpClient = new RemoteHttpClient(managerConfig.getBaseUrl(), managerConfig.getBearerToken());
             logger.info("Initialized SandboxService in remote mode with base URL: {}", managerConfig.getBaseUrl());
         } else {
+            // 本地模式：直接操作容器
             this.remoteHttpClient = null;
             logger.info("RemoteHttpClient not initialized: baseUrl is null or empty");
         }
     }
 
+    /**
+     * 启动沙箱服务。
+     * 初始化容器客户端、AgentBay 客户端（如配置），并启动定时清理任务。
+     */
     public void start() {
         logger.info("Initializing SandboxService with container manager: {}", this.managerConfig.getClientStarter().getContainerClientType());
         this.containerClient = this.managerConfig.getClientStarter().startClient(new PortManager(this.managerConfig.getPortRange()));

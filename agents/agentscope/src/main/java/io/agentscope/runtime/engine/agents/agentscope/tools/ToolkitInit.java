@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ToolkitInit.java
+ * 模块: agents/agentscope
+ * 包: io.agentscope.runtime.engine.agents.agentscope.tools
+ *
+ * ToolkitInit，沙箱工具实现类。
+ */
+
 package io.agentscope.runtime.engine.agents.agentscope.tools;
 
 import io.agentscope.core.tool.AgentTool;

@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: SandboxConfig.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.model.sandbox
+ *
+ * 沙箱配置模型，定义沙箱实例的完整配置参数。
+ */
+
 package io.agentscope.runtime.sandbox.manager.model.sandbox;
 
 import java.util.HashMap;

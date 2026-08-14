@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: InMemorySandboxMap.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.utils
+ *
+ * SandboxMap 的内存实现版本，使用 ConcurrentHashMap 存储沙箱映射。
+ * 适用于单实例部署场景，不支持跨进程共享。
+ */
+
 package io.agentscope.runtime.sandbox.manager.utils;
 
 import io.agentscope.runtime.sandbox.manager.model.container.ContainerModel;

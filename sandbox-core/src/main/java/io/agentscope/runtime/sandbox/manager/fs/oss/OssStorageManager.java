@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: OssStorageManager.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.fs.oss
+ *
+ * OSS 存储管理器，基于阿里云 OSS 实现文件存储和检索。
+ */
+
 package io.agentscope.runtime.sandbox.manager.fs.oss;
 
 import com.aliyun.oss.OSS;

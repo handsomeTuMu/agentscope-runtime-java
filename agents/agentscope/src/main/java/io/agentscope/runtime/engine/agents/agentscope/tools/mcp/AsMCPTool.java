@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AsMCPTool.java
+ * 模块: agents/agentscope
+ * 包: io.agentscope.runtime.engine.agents.agentscope.tools.mcp
+ *
+ * AsMCPTool，沙箱工具实现类。
+ */
+
 package io.agentscope.runtime.engine.agents.agentscope.tools.mcp;
 
 import io.agentscope.core.message.ToolResultBlock;

@@ -13,6 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: Session.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.schemas
+ *
+ * 会话模型，表示一个完整的对话会话。
+ * 包含会话 ID、用户 ID 和该会话中的所有消息历史。
+ * 由 SessionHistoryService 管理其持久化和检索。
+ */
 package io.agentscope.runtime.engine.schemas;
 
 import java.util.ArrayList;
@@ -21,17 +30,24 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Session class, represents a conversation session
- * Contains conversation history, including all messages, uniquely identified by ID
+ * 会话模型。
+ *
+ * <p>角色：表示 Agent 与用户之间的一个对话会话，包含会话的唯一标识、
+ * 归属用户以及该会话中的完整消息历史列表。</p>
+ *
+ * <p>设计模式：值对象模式（Value Object）—— 聚合根，聚合了会话中的所有消息。</p>
  */
 public class Session {
-    
+
+    /** 会话唯一标识符 */
     @JsonProperty("id")
     private String id;
-    
+
+    /** 会话归属用户 ID */
     @JsonProperty("user_id")
     private String userId;
-    
+
+    /** 会话中的消息历史列表 */
     @JsonProperty("messages")
     private List<Message> messages;
     

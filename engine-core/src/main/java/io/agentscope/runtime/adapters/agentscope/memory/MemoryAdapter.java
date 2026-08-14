@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: MemoryAdapter.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.adapters.agentscope.memory
+ *
+ * AgentScope 短期记忆适配器，将运行时的 SessionHistoryService 适配为
+ * AgentScope 框架的 Memory 接口。负责会话历史消息的加载、追加和管理。
+ */
+
 package io.agentscope.runtime.adapters.agentscope.memory;
 
 import io.agentscope.core.message.Msg;

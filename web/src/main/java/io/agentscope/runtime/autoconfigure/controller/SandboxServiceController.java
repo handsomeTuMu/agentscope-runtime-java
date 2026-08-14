@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: SandboxServiceController.java
+ * 模块: web
+ * 包: io.agentscope.runtime.autoconfigure.controller
+ *
+ * SandboxServiceController，沙箱实现类。
+ */
+
 package io.agentscope.runtime.autoconfigure.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

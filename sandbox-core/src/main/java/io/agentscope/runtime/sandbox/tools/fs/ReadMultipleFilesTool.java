@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: ReadMultipleFilesTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.fs
+ *
+ * 批量读取文件工具，一次性读取沙箱文件系统中的多个文件。
+ */
+
 package io.agentscope.runtime.sandbox.tools.fs;
 
 import io.agentscope.runtime.sandbox.box.FilesystemSandbox;

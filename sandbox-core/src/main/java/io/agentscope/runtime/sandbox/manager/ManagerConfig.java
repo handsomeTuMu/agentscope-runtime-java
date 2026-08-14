@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ManagerConfig.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager
+ *
+ * 沙箱管理器配置类，配置沙箱服务的核心参数。
+ * 包括容器客户端类型、端口范围、文件系统配置等。
+ * 由 SandboxService 使用来初始化沙箱管理器。
+ */
+
 package io.agentscope.runtime.sandbox.manager;
 
 import io.agentscope.runtime.sandbox.manager.client.container.BaseClientStarter;

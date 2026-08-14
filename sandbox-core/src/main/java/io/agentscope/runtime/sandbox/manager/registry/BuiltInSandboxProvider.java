@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: BuiltInSandboxProvider.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.registry
+ *
+ * 内置沙箱提供者，提供系统预置的沙箱类型注册。
+ */
+
 package io.agentscope.runtime.sandbox.manager.registry;
 
 import io.agentscope.runtime.sandbox.box.*;

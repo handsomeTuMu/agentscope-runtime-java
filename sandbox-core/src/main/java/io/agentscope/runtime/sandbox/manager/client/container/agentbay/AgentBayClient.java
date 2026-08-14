@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AgentBayClient.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.client.container.agentbay
+ *
+ * AgentBay 容器客户端，负责与 AgentBay 平台交互管理容器生命周期。
+ */
+
 package io.agentscope.runtime.sandbox.manager.client.container.agentbay;
 
 import com.aliyun.agentbay.AgentBay;

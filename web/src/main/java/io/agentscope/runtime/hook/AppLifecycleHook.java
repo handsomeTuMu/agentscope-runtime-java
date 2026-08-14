@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AppLifecycleHook.java
+ * 模块: web
+ * 包: io.agentscope.runtime.hook
+ *
+ * AppLifecycleHook。
+ */
+
 package io.agentscope.runtime.hook;
 
 public interface AppLifecycleHook {

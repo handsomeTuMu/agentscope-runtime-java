@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: HoverTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.browser
+ *
+ * 悬停工具，在浏览器页面中模拟鼠标悬停在指定元素上。
+ */
+
 package io.agentscope.runtime.sandbox.tools.browser;
 
 import io.agentscope.runtime.sandbox.box.BrowserSandbox;

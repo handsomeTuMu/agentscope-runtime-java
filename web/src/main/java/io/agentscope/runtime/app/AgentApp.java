@@ -14,6 +14,17 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AgentApp.java
+ * 模块: web
+ * 包: io.agentscope.runtime.app
+ *
+ * Agent 应用入口类，是整个 AgentScope-Runtime-Java 的服务启动入口点。
+ * 负责组装配置和组件（控制器、端点等），初始化 Runner（代理 AgentAdapter），
+ * 并通过 DeployManager 启动 Spring Boot 服务器。
+ * 提供了流式构建器模式的 API 来配置端点、主机、端口、流式输出等参数。
+ */
+
 package io.agentscope.runtime.app;
 
 import java.io.File;

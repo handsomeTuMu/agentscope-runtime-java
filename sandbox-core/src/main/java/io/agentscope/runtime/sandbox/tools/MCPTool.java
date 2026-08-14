@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: MCPTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools
+ *
+ * MCP 工具，封装 Model Context Protocol 工具的调用逻辑。
+ */
+
 package io.agentscope.runtime.sandbox.tools;
 
 import io.agentscope.runtime.sandbox.box.BaseSandbox;

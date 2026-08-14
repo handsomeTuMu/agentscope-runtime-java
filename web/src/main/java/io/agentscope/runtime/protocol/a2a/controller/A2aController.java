@@ -14,6 +14,17 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: A2aController.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.a2a.controller
+ *
+ * A2A（Agent-to-Agent）协议的 REST 控制器。
+ * 实现 A2A 协议的 JSON-RPC 端点，支持流式（SSE）和非流式（JSON）两种通信模式。
+ * 处理消息发送、任务查询、任务取消、推送通知配置等 A2A 协议操作。
+ * 端点路径：/a2a/
+ */
+
 package io.agentscope.runtime.protocol.a2a.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;

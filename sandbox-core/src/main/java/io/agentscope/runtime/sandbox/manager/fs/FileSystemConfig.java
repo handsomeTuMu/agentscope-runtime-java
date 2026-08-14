@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: FileSystemConfig.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.fs
+ *
+ * 文件系统配置接口，定义沙箱文件系统的配置标准。
+ */
+
 package io.agentscope.runtime.sandbox.manager.fs;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;

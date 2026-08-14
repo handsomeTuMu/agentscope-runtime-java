@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: AgentScopeAgentHandler.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.adapters.agentscope
+ *
+ * AgentScopeAgentHandler。
+ */
+
 package io.agentscope.runtime.adapters.agentscope;
 
 import io.agentscope.runtime.adapters.AgentHandler;
@@ -26,35 +34,49 @@ import io.agentscope.runtime.sandbox.manager.SandboxService;
 import reactor.core.publisher.Flux;
 
 /**
- * Abstract base class for AgentScope framework adapter implementations.
+ * AgentScope 框架适配器实现的抽象基类。
  *
- * <p>This class provides common functionality for AgentScope adapters, including:</p>
+ * <p>该类为 AgentScope 适配器提供通用功能，包括：</p>
  * <ul>
- *   <li>Framework type identification ("agentscope")</li>
- *   <li>Stream adapter for converting AgentScope streaming events</li>
+ *   <li>框架类型标识（"agentscope"）</li>
+ *   <li>用于转换 AgentScope 流式事件的流适配器</li>
  * </ul>
  *
- * <p>Subclasses must implement the lifecycle methods:</p>
+ * <p>架构位置：该类是 AgentScope 框架与运行时之间的适配器基类，
+ * 持有状态服务、会话历史服务和记忆服务的引用，管理这些服务的生命周期。</p>
+ *
+ * <p>子类必须实现以下生命周期方法：</p>
  * <ul>
- *   <li>{@link #start()} - Start the adapter</li>
- *   <li>{@link #streamQuery(AgentRequest, Object)} - Process queries</li>
- *   <li>{@link #stop()} - Stop the adapter</li>
- *   <li>{@link #isHealthy()} - Check health status</li>
+ *   <li>{@link #start()} - 启动适配器</li>
+ *   <li>{@link #streamQuery(AgentRequest, Object)} - 处理查询</li>
+ *   <li>{@link #stop()} - 停止适配器</li>
+ *   <li>{@link #isHealthy()} - 检查健康状态</li>
  * </ul>
  */
 public abstract class AgentScopeAgentHandler implements AgentHandler {
 
+    /** 流适配器，用于将 AgentScope 流式事件转换为运行时 Event 流 */
     protected final StreamAdapter streamAdapter;
+    /** 消息适配器，用于在 AgentScope Msg 和运行时 Message 之间转换 */
     protected final MessageAdapter messageAdapter;
+    /** 沙箱服务，用于隔离执行文件系统和进程操作 */
     protected SandboxService sandboxService;
 
-    // short-term from runtime, specifically for agentscope
+    /** 短期状态服务（来自运行时），专门用于 AgentScope 的状态管理 */
     protected StateService stateService;
-    // short-term from runtime
+    /** 短期会话历史服务（来自运行时） */
     protected SessionHistoryService sessionHistoryService;
-    // long-term from runtime
+    /** 长期记忆服务（来自运行时） */
     protected MemoryService memoryService;
 
+    /**
+     * 创建 AgentScopeAgentHandler 实例，注入所有必要的服务依赖。
+     *
+     * @param stateService 状态服务实例
+     * @param sessionHistoryService 会话历史服务实例
+     * @param memoryService 记忆服务实例
+     * @param sandboxService 沙箱服务实例
+     */
     AgentScopeAgentHandler(StateService stateService, SessionHistoryService sessionHistoryService, MemoryService memoryService, SandboxService sandboxService) {
         this();
         this.stateService = stateService;
@@ -64,114 +86,138 @@ public abstract class AgentScopeAgentHandler implements AgentHandler {
     }
 
     /**
-     * Creates a new AgentScopeAgentAdapter instance.
-     * Initializes the stream adapter and message adapter for AgentScope framework.
+     * 创建新的 AgentScopeAgentAdapter 实例。
+     * 初始化 AgentScope 框架的流适配器和消息适配器。
      */
     protected AgentScopeAgentHandler() {
         this.streamAdapter = new AgentScopeStreamAdapter();
         this.messageAdapter = new AgentScopeMessageAdapter();
     }
 
+    /**
+     * 设置会话历史服务。
+     *
+     * @param sessionHistoryService 会话历史服务实例
+     */
     public void setSessionHistoryService(SessionHistoryService sessionHistoryService) {
         this.sessionHistoryService = sessionHistoryService;
     }
 
+    /**
+     * 设置状态服务。
+     *
+     * @param stateService 状态服务实例
+     */
     public void setStateService(StateService stateService) {
         this.stateService = stateService;
     }
 
+    /**
+     * 设置长期记忆服务。
+     *
+     * @param memoryService 记忆服务实例
+     */
     public void setMemoryService(MemoryService memoryService) {
         this.memoryService = memoryService;
     }
 
     /**
-     * Get the framework type this adapter supports.
+     * 获取该适配器支持的框架类型。
      *
-     * @return "agentscope" as the framework type
+     * @return "agentscope" 作为框架类型
      */
     @Override
     public String getFrameworkType() {
         return "agentscope";
     }
-    
+
     /**
-     * Get the StreamAdapter implementation for AgentScope framework.
+     * 获取 AgentScope 框架的 StreamAdapter 实现。
      *
-     * @return the AgentScopeStreamAdapter instance
+     * @return AgentScopeStreamAdapter 实例
      */
     @Override
     public StreamAdapter getStreamAdapter() {
         return streamAdapter;
     }
-    
+
     /**
-     * Get the MessageAdapter implementation for AgentScope framework.
+     * 获取 AgentScope 框架的 MessageAdapter 实现。
      *
-     * @return the AgentScopeMessageAdapter instance
+     * @return AgentScopeMessageAdapter 实例
      */
     @Override
     public MessageAdapter getMessageAdapter() {
         return messageAdapter;
     }
-    
-    // Lifecycle methods - must be implemented by subclasses
-    
+
+    // 生命周期方法 - 必须由子类实现
+
     /**
-     * Start the adapter and mark it as ready to process queries.
-     * Must be implemented by subclasses.
+     * 启动适配器并标记为就绪状态，准备处理查询。
+     * 启动状态服务和会话历史服务（如果存在）。
      */
     @Override
     public void start() {
         if (stateService != null) {
-            stateService.start();
+            stateService.start();  // 启动状态服务
         }
         if (sessionHistoryService != null) {
-            sessionHistoryService.start();
+            sessionHistoryService.start();  // 启动会话历史服务
         }
     }
 
     /**
-     * Stop the adapter and prevent it from accepting new queries.
-     * Must be implemented by subclasses.
+     * 停止适配器，阻止其接受新查询。
+     * 按顺序停止状态服务、会话历史服务和沙箱服务。
      */
     @Override
     public void stop() {
         if (stateService != null) {
-            stateService.stop();
+            stateService.stop();  // 停止状态服务
         }
         if (sessionHistoryService != null) {
-            sessionHistoryService.stop();
+            sessionHistoryService.stop();  // 停止会话历史服务
         }
         if(sandboxService != null){
-            sandboxService.stop();
+            sandboxService.stop();  // 停止沙箱服务
         }
     }
 
     /**
-     * Check if the adapter is in a healthy/ready state.
-     * Must be implemented by subclasses.
+     * 检查适配器是否处于健康/就绪状态。
+     * 必须由子类实现。
      *
-     * @return true if the adapter is healthy and ready, false otherwise
+     * @return 如果适配器健康且就绪则返回 true，否则返回 false
      */
     @Override
     public abstract boolean isHealthy();
 
     /**
-     * Process an agent query and return a stream of framework-specific events.
-     * Must be implemented by subclasses.
+     * 处理 Agent 查询并返回框架特定事件的流。
+     * 必须由子类实现。
      *
-     * @param request the agent request containing input messages, session info, etc.
-     * @param messages the converted framework-specific messages (e.g., List&lt;Msg&gt; for agentscope),
-     *                 or null if no conversion is needed
-     * @return a Flux of AgentScope Event objects (Flux&lt;io.agentscope.core.agent.Event&gt;)
+     * @param request 包含输入消息、会话信息等的 Agent 请求
+     * @param messages 已转换的框架特定消息（如 AgentScope 的 List&lt;Msg&gt;），为 null 时表示无需转换
+     * @return AgentScope Event 对象的 Flux 流（Flux&lt;io.agentscope.core.agent.Event&gt;）
      */
     @Override
     public abstract Flux<?> streamQuery(AgentRequest request, Object messages);
 
+    /**
+     * 获取沙箱服务实例。
+     *
+     * @return 沙箱服务
+     */
     public SandboxService getSandboxService(){
         return sandboxService;
     }
 
+    /**
+     * 设置沙箱服务。
+     *
+     * @param sandboxService 沙箱服务实例
+     */
     public void setSandboxService(SandboxService sandboxService){
         this.sandboxService = sandboxService;
     }

@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: ContainerCreateResult.java
+ * 模块: maven_plugin
+ * 包: io.agentscope.maven.plugin.service
+ *
+ * ContainerCreateResult，数据模型类。
+ */
+
 package io.agentscope.maven.plugin.service;
 
 import java.util.ArrayList;

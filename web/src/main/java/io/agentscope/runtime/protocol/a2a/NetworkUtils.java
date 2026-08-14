@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: NetworkUtils.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.a2a
+ *
+ * NetworkUtils。
+ */
+
 package io.agentscope.runtime.protocol.a2a;
 
 import java.net.InetAddress;

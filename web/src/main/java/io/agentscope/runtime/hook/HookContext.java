@@ -15,6 +15,14 @@
  */
 
 
+/**
+ * 文件名称: HookContext.java
+ * 模块: web
+ * 包: io.agentscope.runtime.hook
+ *
+ * HookContext。
+ */
+
 package io.agentscope.runtime.hook;
 
 import java.util.Map;

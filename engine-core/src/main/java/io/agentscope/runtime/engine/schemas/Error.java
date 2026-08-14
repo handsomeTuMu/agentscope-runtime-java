@@ -14,17 +14,33 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: Error.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.schemas
+ *
+ * 错误信息模型，表示 Agent 运行时中发生的错误。
+ * 包含错误码和错误消息两个字段，用于在 Event、Message 和 Response 中携带错误信息。
+ */
+
 package io.agentscope.runtime.engine.schemas;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Error information in events.
+ * 错误信息模型。
+ *
+ * <p>角色：在 Agent 运行时的各种事件（Event、Message、Response）中，
+ * 当处理失败时携带标准化的错误信息，包含错误码和可读的错误描述。</p>
+ *
+ * <p>设计模式：值对象模式（Value Object）—— 简单的数据载体。</p>
  */
 public class Error {
+    /** 错误码（如 "400"、"500"、"internal_error" 等） */
     @JsonProperty("code")
     private String code;
-    
+
+    /** 错误消息文本，人类可读的错误描述 */
     @JsonProperty("message")
     private String message;
     

@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: DockerfileGenerator.java
+ * 模块: maven_plugin
+ * 包: io.agentscope.maven.plugin.service
+ *
+ * DockerfileGenerator。
+ */
+
 package io.agentscope.maven.plugin.service;
 
 import org.apache.maven.plugin.logging.Log;

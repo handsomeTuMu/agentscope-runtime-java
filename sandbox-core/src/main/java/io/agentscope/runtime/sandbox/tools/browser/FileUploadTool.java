@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: FileUploadTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.browser
+ *
+ * 文件上传工具，在浏览器页面中上传文件到文件输入控件。
+ */
+
 package io.agentscope.runtime.sandbox.tools.browser;
 
 import io.agentscope.runtime.sandbox.box.BrowserSandbox;

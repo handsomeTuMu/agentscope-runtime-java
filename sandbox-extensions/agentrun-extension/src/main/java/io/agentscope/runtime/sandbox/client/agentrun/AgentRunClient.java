@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: AgentRunClient.java
+ * 模块: sandbox-extensions/agentrun-extension
+ * 包: io.agentscope.runtime.sandbox.client.agentrun
+ *
+ * AgentRunClient，客户端类。
+ */
+
 package io.agentscope.runtime.sandbox.client.agentrun;
 
 import com.aliyun.agentrun20250910.Client;

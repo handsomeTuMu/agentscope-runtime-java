@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ProtocolConfig.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol
+ *
+ * ProtocolConfig，配置类。
+ */
+
 package io.agentscope.runtime.protocol;
 
 /**

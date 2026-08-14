@@ -14,6 +14,17 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: Sandbox.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.box
+ *
+ * 沙箱实例核心类，代表一个隔离的代码执行环境。
+ * 沙箱可以是 Docker 容器、AgentRun 实例、函数计算（FC）实例等，
+ * Agent 在沙箱中安全地执行 Python 代码、Shell 命令、文件操作等。
+ * 实现了 AutoCloseable 接口，支持 try-with-resources 自动资源释放。
+ */
+
 
 package io.agentscope.runtime.sandbox.box;
 
@@ -30,18 +41,63 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 沙箱实例 —— 隔离的代码执行环境。
+ *
+ * <p>角色：代表一个隔离的运行环境（如 Docker 容器），Agent 在其中安全地
+ * 执行代码、运行命令、操作文件系统。每个沙箱实例关联到一个用户会话，
+ * 并通过 {@link SandboxService} 管理底层容器的生命周期。</p>
+ *
+ * <p>职责：</p>
+ * <ul>
+ *   <li>管理沙箱 ID、用户 ID、会话 ID、沙箱类型等元数据</li>
+ *   <li>延迟初始化：首次使用时自动创建底层容器</li>
+ *   <li>通过 {@link SandboxService} 代理调用工具（listTools、callTool 等）</li>
+ *   <li>支持 MCP 服务器配置添加</li>
+ *   <li>资源自动释放（AutoCloseable）</li>
+ * </ul>
+ *
+ * <p>设计模式：代理模式 —— Sandbox 将工具调用请求委托给 SandboxService，
+ * 后者再委托给具体的沙箱客户端（SandboxClient）。</p>
+ */
 public class Sandbox implements AutoCloseable {
     private static final Logger logger = LoggerFactory.getLogger(Sandbox.class);
 
+    /** 沙箱服务管理器 API，负责底层容器的创建、管理和调用 */
     protected SandboxService managerApi;
+
+    /** 沙箱唯一标识符（即底层容器 ID） */
     protected String sandboxId;
+
+    /** 用户 ID */
     protected String userId;
+
+    /** 会话 ID */
     protected String sessionId;
+
+    /** 沙箱类型（如 "base"、"browser"、"filesystem" 等） */
     protected String sandboxType;
+
+    /** 沙箱是否已关闭标志 */
     protected boolean closed = false;
+
+    /** 环境变量映射 */
     protected Map<String, String> environment;
+
+    /** 文件系统配置 */
     protected FileSystemConfig fileSystemConfig;
 
+    /**
+     * JSON 反序列化构造函数，用于从 JSON 数据重建沙箱实例。
+     *
+     * @param sandboxId 沙箱 ID
+     * @param userId 用户 ID
+     * @param sessionId 会话 ID
+     * @param sandboxType 沙箱类型
+     * @param fileSystemConfig 文件系统配置
+     * @param environment 环境变量
+     * @param closed 是否已关闭
+     */
     @JsonCreator
     public Sandbox(
             @JsonProperty("sandboxId") String sandboxId,
@@ -132,9 +188,15 @@ public class Sandbox implements AutoCloseable {
         return fileSystemConfig;
     }
 
+    /**
+     * 延迟初始化沙箱。
+     * 如果沙箱 ID 为空，则通过 SandboxService 创建底层容器并获取容器 ID。
+     * 这是一个懒加载机制，只在首次使用时才创建容器。
+     */
     private void initializeSandbox(){
         if (sandboxId == null || sandboxId.isEmpty()) {
             try {
+                // 通过管理器 API 创建底层容器
                 ContainerModel containerModel = managerApi.createContainer(this);
                 if (containerModel == null) {
                     throw new RuntimeException(
@@ -150,6 +212,12 @@ public class Sandbox implements AutoCloseable {
         }
     }
 
+    /**
+     * 获取沙箱信息（容器模型）。
+     * 如果沙箱尚未初始化，会先执行延迟初始化。
+     *
+     * @return 容器模型信息
+     */
     @JsonIgnore
     public ContainerModel getInfo() {
         initializeSandbox();
@@ -162,10 +230,21 @@ public class Sandbox implements AutoCloseable {
         }
     }
 
+    /**
+     * 列出沙箱中所有可用的工具。
+     *
+     * @return 工具名称到工具信息的映射
+     */
     public Map<String, Object> listTools() {
         return listTools(null);
     }
 
+    /**
+     * 列出沙箱中指定类型的工具。
+     *
+     * @param toolType 工具类型过滤，为 null 时列出所有工具
+     * @return 工具名称到工具信息的映射
+     */
     public Map<String, Object> listTools(String toolType) {
         initializeSandbox();
         try{
@@ -177,6 +256,13 @@ public class Sandbox implements AutoCloseable {
         }
     }
 
+    /**
+     * 调用沙箱中的工具。
+     *
+     * @param name 工具名称
+     * @param arguments 工具参数映射
+     * @return 工具执行结果（JSON 字符串）
+     */
     public String callTool(String name, Map<String, Object> arguments) {
         initializeSandbox();
         try{
@@ -188,10 +274,23 @@ public class Sandbox implements AutoCloseable {
         }
     }
 
+    /**
+     * 向沙箱添加 MCP 服务器配置（不覆盖已有配置）。
+     *
+     * @param serverConfigs MCP 服务器配置映射
+     * @return 添加结果
+     */
     public Map<String, Object> addMcpServers(Map<String, Object> serverConfigs) {
         return addMcpServers(serverConfigs, false);
     }
 
+    /**
+     * 向沙箱添加 MCP 服务器配置。
+     *
+     * @param serverConfigs MCP 服务器配置映射
+     * @param overwrite 是否覆盖已有的同名服务器配置
+     * @return 添加结果
+     */
     public Map<String, Object> addMcpServers(Map<String, Object> serverConfigs, boolean overwrite) {
         initializeSandbox();
         try{
@@ -203,6 +302,11 @@ public class Sandbox implements AutoCloseable {
         }
     }
 
+    /**
+     * 关闭并释放沙箱资源。
+     * 通过 SandboxService 停止并移除底层容器。
+     * 支持 AutoCloseable，可使用 try-with-resources 自动调用。
+     */
     @Override
     public void close() {
         if (closed || sandboxId == null || sandboxId.isEmpty()) {
@@ -222,13 +326,14 @@ public class Sandbox implements AutoCloseable {
     }
 
     /**
-     * Manually release sandbox resources
-     * Forces release of underlying container regardless of autoRelease setting
+     * 手动释放沙箱资源。
+     * 等同于调用 {@link #close()}，强制释放底层容器。
      */
     public void release() {
         close();
     }
 
+    /** @return 沙箱是否已关闭 */
     public boolean isClosed() {
         return closed;
     }

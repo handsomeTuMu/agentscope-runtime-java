@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: DockerClientStarter.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.client.container.docker
+ *
+ * Docker 容器客户端启动器，负责 Docker 客户端的初始化和配置。
+ */
+
 package io.agentscope.runtime.sandbox.manager.client.container.docker;
 
 import io.agentscope.runtime.sandbox.manager.client.container.BaseClientStarter;

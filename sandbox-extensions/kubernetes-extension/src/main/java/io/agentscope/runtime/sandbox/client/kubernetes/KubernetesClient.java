@@ -13,6 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: KubernetesClient.java
+ * 模块: sandbox-extensions/kubernetes-extension
+ * 包: io.agentscope.runtime.sandbox.client.kubernetes
+ *
+ * KubernetesClient，Kubernetes 容器客户端，通过 Kubernetes API 管理容器 Pod 的生命周期。
+ * 是 BaseClient 的 Kubernetes 实现，支持在 K8s 集群中创建、启动、停止和移除沙箱 Pod。
+ */
+
 package io.agentscope.runtime.sandbox.client.kubernetes;
 
 import io.agentscope.runtime.sandbox.manager.client.container.BaseClient;

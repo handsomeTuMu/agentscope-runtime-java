@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ModelStudioDeployService.java
+ * 模块: maven_plugin
+ * 包: io.agentscope.maven.plugin.service
+ *
+ * ModelStudioDeployService，数据模型类。
+ */
+
 package io.agentscope.maven.plugin.service;
 
 import com.aliyun.bailian20231229.Client;

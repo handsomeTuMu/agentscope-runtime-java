@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: McpConfigConverter.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools
+ *
+ * MCP 配置转换器，将 MCP 服务器配置转换为沙箱可识别的格式。
+ */
+
 package io.agentscope.runtime.sandbox.tools;
 
 import com.fasterxml.jackson.core.type.TypeReference;

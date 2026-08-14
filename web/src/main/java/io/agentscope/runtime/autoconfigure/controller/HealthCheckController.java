@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: HealthCheckController.java
+ * 模块: web
+ * 包: io.agentscope.runtime.autoconfigure.controller
+ *
+ * HealthCheckController，REST API 控制器类。
+ */
+
 package io.agentscope.runtime.autoconfigure.controller;
 
 import io.agentscope.runtime.engine.Runner;

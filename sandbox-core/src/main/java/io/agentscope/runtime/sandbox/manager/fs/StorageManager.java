@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: StorageManager.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.fs
+ *
+ * 存储管理器接口，定义文件上传、下载和管理操作标准。
+ */
+
 package io.agentscope.runtime.sandbox.manager.fs;
 
 import org.slf4j.Logger;

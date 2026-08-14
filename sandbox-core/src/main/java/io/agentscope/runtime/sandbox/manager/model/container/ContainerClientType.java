@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ContainerClientType.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.model.container
+ *
+ * 容器客户端类型枚举，定义支持的容器运行时类型。
+ */
+
 package io.agentscope.runtime.sandbox.manager.model.container;
 
 public enum ContainerClientType {

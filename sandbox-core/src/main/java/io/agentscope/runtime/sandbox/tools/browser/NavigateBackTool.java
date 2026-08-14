@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: NavigateBackTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.browser
+ *
+ * 后退导航工具，在浏览器历史记录中后退一页。
+ */
+
 package io.agentscope.runtime.sandbox.tools.browser;
 
 import io.agentscope.runtime.sandbox.box.BrowserSandbox;

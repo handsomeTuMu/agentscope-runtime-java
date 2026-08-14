@@ -14,12 +14,27 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: Mapping.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.common.collections
+ *
+ * 键值对映射抽象基类，定义了通用的 key-value 存储操作接口。
+ * 支持设置、获取、删除和前缀扫描操作，具体实现包括内存版本和 Redis 版本等。
+ */
+
 package io.agentscope.runtime.common.collections;
 
 import java.util.List;
 
 /**
- * Abstract base class for key-value mapping implementations.
+ * 键值对映射抽象基类。
+ *
+ * <p>角色：定义通用的 key-value 存储操作契约，为 Agent 运行时提供
+ * 状态数据的持久化能力。支持设置、获取、删除和按前缀扫描键值对。</p>
+ *
+ * <p>设计模式：策略模式 —— 不同的后端实现（如 {@link InMemoryMapping}、Redis 等）
+ * 提供各自的存储方案，但对外暴露统一的接口。</p>
  */
 public abstract class Mapping {
     /**

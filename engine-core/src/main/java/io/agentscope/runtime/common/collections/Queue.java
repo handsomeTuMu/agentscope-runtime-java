@@ -14,12 +14,27 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: Queue.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.common.collections
+ *
+ * 队列抽象基类，定义了先进先出（FIFO）队列的标准操作接口。
+ * 支持入队、出队、查看队首元素等操作，具体实现包括内存版本和 Redis 版本等。
+ */
+
 package io.agentscope.runtime.common.collections;
 
 import java.util.Map;
 
 /**
- * Abstract base class for queue implementations.
+ * 队列抽象基类。
+ *
+ * <p>角色：定义先进先出（FIFO）队列的标准操作契约，
+ * 为 Agent 运行时提供消息队列能力。</p>
+ *
+ * <p>设计模式：策略模式 —— 不同的后端实现（如 {@link InMemoryQueue}、Redis 等）
+ * 提供各自的队列方案，但对外暴露统一的接口。</p>
  */
 public abstract class Queue {
     /**

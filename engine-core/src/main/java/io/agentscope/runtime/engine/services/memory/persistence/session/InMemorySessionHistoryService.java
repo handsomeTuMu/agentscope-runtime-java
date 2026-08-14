@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: InMemorySessionHistoryService.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.services.memory.persistence.session
+ *
+ * InMemorySessionHistoryService，服务类。
+ */
+
 package io.agentscope.runtime.engine.services.memory.persistence.session;
 
 import java.util.ArrayList;

@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: FileSystemType.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.model.fs
+ *
+ * 文件系统类型枚举，定义支持的文件系统存储类型。
+ */
+
 package io.agentscope.runtime.sandbox.manager.model.fs;
 
 public enum FileSystemType {

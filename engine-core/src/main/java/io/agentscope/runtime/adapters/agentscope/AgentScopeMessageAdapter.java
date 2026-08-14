@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AgentScopeMessageAdapter.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.adapters.agentscope
+ *
+ * AgentScope 消息适配器，负责在 AgentScope 框架消息（Msg）和运行时消息（Message）之间进行双向转换。
+ * 处理各种内容块类型（文本、图片、音频、工具调用、工具结果、思考过程等）的映射。
+ */
+
 package io.agentscope.runtime.adapters.agentscope;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -31,8 +40,21 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Adapter for converting between AgentScope Java messages and runtime messages.
- * the actual AgentScope Java API types.
+ * AgentScope 消息适配器。
+ *
+ * <p>角色：在 AgentScope 框架的原生消息类型（Msg / ContentBlock）与运行时
+ * 的标准消息类型（Message / Content）之间进行双向转换。</p>
+ *
+ * <p>职责：</p>
+ * <ul>
+ *   <li>将 AgentScope Msg 转换为运行时 Message（frameworkMsgToMessage）</li>
+ *   <li>将运行时 Message 转换为 AgentScope Msg（messageToFrameworkMsg）</li>
+ *   <li>处理所有内容块类型的映射：文本、图片、音频、工具调用、工具结果、思考过程等</li>
+ *   <li>支持消息分组（按 original_id 合并同源消息）</li>
+ * </ul>
+ *
+ * <p>设计模式：适配器模式（Adapter Pattern）—— 将 AgentScope 框架的消息接口
+ * 适配为运行时统一的消息接口。</p>
  */
 public class AgentScopeMessageAdapter implements MessageAdapter {
     private static final Logger logger = LoggerFactory.getLogger(AgentScopeMessageAdapter.class);

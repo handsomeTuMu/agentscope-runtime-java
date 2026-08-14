@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: InMemoryStateService.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.services.agent_state
+ *
+ * StateService 的内存实现版本，使用嵌套 Map 结构存储 Agent 状态。
+ * 适用于开发测试场景或不需要持久化的短期运行场景。
+ * 支持多用户、多会话和非连续轮次 ID。
+ */
+
 package io.agentscope.runtime.engine.services.agent_state;
 
 import java.util.ArrayList;
@@ -28,17 +38,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * In-memory implementation of StateService using maps
- * for sparse round storage.
- * 
- * <p>Multiple users, sessions, and non-contiguous round IDs are supported.
- * If round_id is null when saving, a new round is appended automatically.
- * If round_id is null when exporting, the latest round is returned.
- * 
- * <p><b>Structure:</b>
+ * StateService 的内存实现。
+ *
+ * <p>角色：使用嵌套 ConcurrentHashMap 结构在 JVM 内存中存储 Agent 状态数据。
+ * 支持多用户、多会话和非连续轮次 ID。当 round_id 为 null 时保存状态，
+ * 会自动分配新的递增轮次 ID；当 round_id 为 null 时导出状态，返回最新轮次的状态。</p>
+ *
+ * <p>数据结构：</p>
  * <pre>
  * { user_id: { session_id: { round_id: state_dict } } }
  * </pre>
+ *
+ * <p>设计模式：策略模式 —— StateService 接口的具体实现之一；
+ * 深拷贝防护 —— 保存和读取时都执行深拷贝，防止外部修改影响存储数据。</p>
+ *
+ * <p><b>线程安全说明：</b>使用 ConcurrentHashMap 保证并发安全。</p>
  */
 public class InMemoryStateService extends StateService {
     private static final Logger logger = LoggerFactory.getLogger(InMemoryStateService.class);

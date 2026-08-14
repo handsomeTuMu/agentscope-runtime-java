@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: Error.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.responseapi.model
+ *
+ * Error，数据模型类。
+ */
+
 package io.agentscope.runtime.protocol.responseapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

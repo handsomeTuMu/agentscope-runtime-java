@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ResponseApiHandlerConfiguration.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.responseapi
+ *
+ * ResponseApiHandlerConfiguration，配置类。
+ */
+
 package io.agentscope.runtime.protocol.responseapi;
 
 import io.agentscope.runtime.engine.Runner;

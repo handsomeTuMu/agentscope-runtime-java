@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AbstractAppLifecycleHook.java
+ * 模块: web
+ * 包: io.agentscope.runtime.hook
+ *
+ * AbstractAppLifecycleHook。
+ */
+
 package io.agentscope.runtime.hook;
 
 public abstract class AbstractAppLifecycleHook implements AppLifecycleHook {

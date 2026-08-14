@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: RedisManagerConfig.java
+ * 模块: sandbox-extensions/redis-extension
+ * 包: io.agentscope.runtime.sandbox.map
+ *
+ * RedisManagerConfig，配置类。
+ */
+
 package io.agentscope.runtime.sandbox.map;
 
 /**

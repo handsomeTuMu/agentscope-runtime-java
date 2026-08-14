@@ -14,58 +14,65 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ServiceWithLifecycleManager.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.services
+ *
+ * 带生命周期管理的服务抽象基类。
+ * 实现了 {@link Service} 接口，为子类提供了统一的抽象方法签名。
+ * 子类需要实现具体的 start()、stop() 和 health() 逻辑。
+ */
+
 package io.agentscope.runtime.engine.services;
 
 /**
- * Base class for services that want lifecycle manager functionality.
- * 
- * <p>This class combines the Service interface with default implementations
- * for common lifecycle operations, providing a convenient base class for
- * most service implementations.
- * 
- * <p>Note: This is an abstract base class. Subclasses must implement the
- * abstract methods from the Service interface.
- * 
- * <p><b>Usage Example:</b>
+ * 具有生命周期管理能力的服务抽象基类（同步版本）。
+ *
+ * <p>角色：为大多数服务实现提供便利的抽象基类，统一了 Service 接口的方法签名。
+ * 子类只需关注具体的业务逻辑，而无需关心接口定义的细节。</p>
+ *
+ * <p>设计模式：模板方法模式（Template Method Pattern）—— 基类定义框架，
+ * 子类实现具体步骤。</p>
+ *
+ * <p><b>使用示例：</b>
  * <pre>{@code
  * public class MyService extends ServiceWithLifecycleManager {
  *     @Override
- *     public CompletableFuture<Void> start() {
- *         // Initialize resources
- *         return CompletableFuture.completedFuture(null);
+ *     public void start() {
+ *         // 初始化资源
  *     }
- *     
+ *
  *     @Override
- *     public CompletableFuture<Void> stop() {
- *         // Cleanup resources
- *         return CompletableFuture.completedFuture(null);
+ *     public void stop() {
+ *         // 清理资源
  *     }
- *     
+ *
  *     @Override
- *     public CompletableFuture<Boolean> health() {
- *         return CompletableFuture.completedFuture(true);
+ *     public boolean health() {
+ *         return true; // 返回健康状态
  *     }
  * }
  * }</pre>
  */
 public abstract class ServiceWithLifecycleManager implements Service {
-    
+
     /**
-     * Starts the service, initializing any necessary resources or connections.
+     * 启动服务，初始化必要的资源或连接。子类必须实现。
      */
     @Override
     public abstract void start();
-    
+
     /**
-     * Stops the service, releasing any acquired resources.
+     * 停止服务，释放已获取的资源。子类必须实现。
      */
     @Override
     public abstract void stop();
-    
+
     /**
-     * Checks the health of the service.
+     * 检查服务的健康状态。子类必须实现。
      *
-     * @return
+     * @return true 表示服务健康，false 表示服务不可用
      */
     @Override
     public abstract boolean health();

@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: SandboxClient.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.client.sandbox
+ *
+ * 沙箱客户端接口，定义了与沙箱实例交互的标准操作。
+ * 包括列出工具、调用工具、添加 MCP 服务器配置等操作。
+ * 实现类包括 SandboxHttpClient（通过 HTTP 调用沙箱 API）等。
+ */
+
 package io.agentscope.runtime.sandbox.manager.client.sandbox;
 
 import java.util.Map;

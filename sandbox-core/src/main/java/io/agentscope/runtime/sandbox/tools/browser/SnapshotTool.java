@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: SnapshotTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.browser
+ *
+ * 快照工具，获取浏览器页面的可访问性快照（DOM 树结构）。
+ */
+
 package io.agentscope.runtime.sandbox.tools.browser;
 
 import io.agentscope.runtime.sandbox.box.BrowserSandbox;

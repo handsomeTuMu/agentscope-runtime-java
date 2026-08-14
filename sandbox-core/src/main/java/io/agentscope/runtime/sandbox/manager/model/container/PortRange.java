@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: PortRange.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.model.container
+ *
+ * 端口范围模型，定义端口分配的最小和最大范围。
+ */
+
 package io.agentscope.runtime.sandbox.manager.model.container;
 
 public class PortRange {

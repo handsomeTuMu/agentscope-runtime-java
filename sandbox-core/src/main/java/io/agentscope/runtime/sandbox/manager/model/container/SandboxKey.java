@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: SandboxKey.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.model.container
+ *
+ * 沙箱键模型，用于在 SandboxMap 中唯一标识一个沙箱实例。
+ */
+
 package io.agentscope.runtime.sandbox.manager.model.container;
 
 import org.slf4j.Logger;

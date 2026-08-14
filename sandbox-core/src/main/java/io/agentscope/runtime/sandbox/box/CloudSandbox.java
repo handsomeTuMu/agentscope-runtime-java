@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: CloudSandbox.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.box
+ *
+ * 云沙箱实现，基于远程容器服务提供隔离环境。
+ */
+
 package io.agentscope.runtime.sandbox.box;
 
 import io.agentscope.runtime.sandbox.manager.SandboxService;

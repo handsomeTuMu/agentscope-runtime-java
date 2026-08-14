@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: LocalFileSystemConfig.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.fs.local
+ *
+ * 本地文件系统配置，配置本地存储相关的参数。
+ */
+
 package io.agentscope.runtime.sandbox.manager.fs.local;
 
 import com.fasterxml.jackson.annotation.JsonCreator;

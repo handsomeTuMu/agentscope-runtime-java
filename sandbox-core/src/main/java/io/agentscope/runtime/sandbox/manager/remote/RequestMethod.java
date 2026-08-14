@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: RequestMethod.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.remote
+ *
+ * HTTP 请求方法枚举，定义支持的 HTTP 请求方法类型。
+ */
+
 package io.agentscope.runtime.sandbox.manager.remote;
 
 /**

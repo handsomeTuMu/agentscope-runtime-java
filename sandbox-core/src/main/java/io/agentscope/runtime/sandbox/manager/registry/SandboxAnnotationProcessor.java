@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: SandboxAnnotationProcessor.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.registry
+ *
+ * 沙箱注解处理器，处理 @RegisterSandbox 注解，实现沙箱类的自动发现。
+ */
+
 package io.agentscope.runtime.sandbox.manager.registry;
 
 import io.agentscope.runtime.sandbox.manager.model.sandbox.SandboxConfig;

@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ResponseApiResponse.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.responseapi.model
+ *
+ * ResponseApiResponse。
+ */
+
 package io.agentscope.runtime.protocol.responseapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

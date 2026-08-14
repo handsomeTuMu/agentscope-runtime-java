@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: RunPythonTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.base
+ *
+ * Python 代码执行工具，在沙箱中执行 Python 代码并返回执行结果。
+ */
+
 package io.agentscope.runtime.sandbox.tools.base;
 
 import io.agentscope.runtime.sandbox.box.BaseSandbox;

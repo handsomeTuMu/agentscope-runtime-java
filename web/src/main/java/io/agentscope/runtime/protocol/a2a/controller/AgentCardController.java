@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AgentCardController.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.a2a.controller
+ *
+ * AgentCardController，REST API 控制器类。
+ */
+
 package io.agentscope.runtime.protocol.a2a.controller;
 
 import io.a2a.spec.AgentCard;

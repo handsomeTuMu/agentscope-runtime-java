@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: RegisterSandbox.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.registry
+ *
+ * 沙箱注册注解，用于标记需要自动注册的沙箱类。
+ */
+
 package io.agentscope.runtime.sandbox.manager.registry;
 
 import java.lang.annotation.ElementType;

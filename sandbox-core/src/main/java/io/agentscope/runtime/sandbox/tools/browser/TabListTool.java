@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: TabListTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.browser
+ *
+ * 标签页列表工具，列出所有打开的浏览器标签页。
+ */
+
 package io.agentscope.runtime.sandbox.tools.browser;
 
 import io.agentscope.runtime.sandbox.box.BrowserSandbox;

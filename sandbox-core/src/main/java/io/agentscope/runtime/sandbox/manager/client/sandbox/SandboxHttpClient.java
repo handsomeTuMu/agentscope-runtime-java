@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: SandboxHttpClient.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.client.sandbox
+ *
+ * 基于 HTTP 的沙箱客户端实现，通过 HTTP 协议与沙箱容器内的服务交互。
+ * 负责将工具调用请求、MCP 配置请求等转发到容器内运行的 HTTP 服务。
+ */
 package io.agentscope.runtime.sandbox.manager.client.sandbox;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

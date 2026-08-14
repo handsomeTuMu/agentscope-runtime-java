@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AgentScopeStreamAdapter.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.adapters.agentscope
+ *
+ * AgentScope 流式适配器，将 AgentScope 框架的流式事件（io.agentscope.core.agent.Event）
+ * 转换为运行时标准事件流（Flux&lt;Event&gt;）。
+ * 处理增量文本更新、工具调用消息构建、图片/音频内容流式输出等。
+ */
+
 package io.agentscope.runtime.adapters.agentscope;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,16 +41,21 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Adapter for converting AgentScope Java streaming events to runtime messages.
- * but uses Reactor Flux<Event> instead of AsyncIterator.
- * 
- * <p>This implementation strictly follows the following logic:
+ * AgentScope 流式事件适配器。
+ *
+ * <p>角色：将 AgentScope 框架产生的流式事件（包含 Msg 和 isLast 标志的 Event）
+ * 转换为运行时统一的 Event 流（Message 或 Content 对象）。</p>
+ *
+ * <p>核心处理逻辑：</p>
  * <ul>
- *   <li>Maintains state across streaming events (msg_id, truncate memory, tool dict, etc.)</li>
- *   <li>Handles incremental text updates with deduplication (removeprefix logic)</li>
- *   <li>Manages tool_use messages in stages (create empty, then fill on last)</li>
- *   <li>Processes all content block types: text, thinking, tool_use, tool_result, image, audio</li>
+ *   <li>维护流式事件的跨事件状态（消息 ID 追踪、工具字典等）</li>
+ *   <li>处理增量文本更新（带去重逻辑）</li>
+ *   <li>分阶段构建工具调用消息（先创建空消息，最后填充）</li>
+ *   <li>支持所有内容块类型：文本、思考、工具调用、工具结果、图片、音频</li>
+ *   <li>同时输出 Message 和 Content 级别的事件</li>
  * </ul>
+ *
+ * <p>设计模式：适配器模式（Adapter Pattern）—— 使用 Reactor Flux 实现响应式流转换。</p>
  */
 public class AgentScopeStreamAdapter implements StreamAdapter {
     private static final Logger logger = LoggerFactory.getLogger(AgentScopeStreamAdapter.class);

@@ -14,14 +14,29 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: BaseRequest.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.schemas
+ *
+ * 请求基类，所有 Agent 请求模型的父类。
+ * 仅包含请求 ID 字段，具体的请求类型（如 AgentRequest）通过继承扩展更多字段。
+ */
+
 package io.agentscope.runtime.engine.schemas;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Base request model.
+ * 请求基类。
+ *
+ * <p>角色：为所有 Agent 请求模型提供公共的请求 ID 字段。
+ * {@link AgentRequest} 继承此类并扩展了输入消息、会话 ID、模型参数等字段。</p>
+ *
+ * <p>设计模式：值对象模式（Value Object）—— DTO 模式的请求载体基类。</p>
  */
 public class BaseRequest {
+    /** 请求唯一标识符 */
     @JsonProperty("id")
     private String id;
     

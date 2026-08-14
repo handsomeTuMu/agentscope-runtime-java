@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: InMemoryQueue.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.common.collections
+ *
+ * Queue 的内存实现版本，使用 ArrayDeque 作为底层存储。
+ * 提供标准的先进先出（FIFO）队列操作。
+ */
+
 package io.agentscope.runtime.common.collections;
 
 import java.util.ArrayDeque;

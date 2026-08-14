@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: SandboxRegistryService.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.registry
+ *
+ * 沙箱注册表服务，管理沙箱类型的注册、查询和路由。
+ */
+
 package io.agentscope.runtime.sandbox.manager.registry;
 
 import io.agentscope.runtime.sandbox.manager.model.sandbox.SandboxConfig;

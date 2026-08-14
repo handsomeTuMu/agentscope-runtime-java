@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: ListAllowedDirectoriesTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.fs
+ *
+ * 列出允许目录工具，列出沙箱文件系统中允许访问的目录。
+ */
+
 package io.agentscope.runtime.sandbox.tools.fs;
 
 import io.agentscope.runtime.sandbox.box.FilesystemSandbox;

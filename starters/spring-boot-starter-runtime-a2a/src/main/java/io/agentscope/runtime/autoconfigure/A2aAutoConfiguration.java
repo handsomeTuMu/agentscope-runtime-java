@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: A2aAutoConfiguration.java
+ * 模块: starters/spring-boot-starter-runtime-a2a
+ * 包: io.agentscope.runtime.autoconfigure
+ *
+ * A2aAutoConfiguration，配置类。
+ */
+
 package io.agentscope.runtime.autoconfigure;
 
 import io.agentscope.runtime.adapters.AgentHandler;

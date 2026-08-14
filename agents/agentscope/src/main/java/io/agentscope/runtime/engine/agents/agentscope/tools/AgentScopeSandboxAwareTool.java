@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AgentScopeSandboxAwareTool.java
+ * 模块: agents/agentscope
+ * 包: io.agentscope.runtime.engine.agents.agentscope.tools
+ *
+ * AgentScopeSandboxAwareTool，沙箱工具实现类。
+ */
+
 package io.agentscope.runtime.engine.agents.agentscope.tools;
 
 import io.agentscope.core.message.ToolResultBlock;

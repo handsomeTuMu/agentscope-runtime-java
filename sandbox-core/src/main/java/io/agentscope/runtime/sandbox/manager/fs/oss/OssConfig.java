@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: OssConfig.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.fs.oss
+ *
+ * 阿里云 OSS 配置类，配置对象存储服务的连接参数。
+ */
+
 package io.agentscope.runtime.sandbox.manager.fs.oss;
 
 import com.fasterxml.jackson.annotation.JsonCreator;

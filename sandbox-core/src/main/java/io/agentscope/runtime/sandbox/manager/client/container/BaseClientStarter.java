@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: BaseClientStarter.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.client.container
+ *
+ * 容器客户端启动器抽象基类，负责容器客户端的初始化和配置。
+ * 根据容器客户端类型（Docker、AgentBay 等）创建并配置对应的客户端实例。
+ * 使用工厂模式，具体实现包括 DockerClientStarter、AgentBayClientStarter 等。
+ */
+
 package io.agentscope.runtime.sandbox.manager.client.container;
 
 import io.agentscope.runtime.sandbox.manager.model.container.ContainerClientType;

@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: RemoteWrapper.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.remote
+ *
+ * 远程调用包装器，为远程沙箱操作提供统一的包装和错误处理。
+ */
+
 package io.agentscope.runtime.sandbox.manager.remote;
 
 import java.lang.annotation.ElementType;

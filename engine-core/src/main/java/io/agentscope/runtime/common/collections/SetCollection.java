@@ -14,12 +14,27 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: SetCollection.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.common.collections
+ *
+ * 集合抽象基类，定义了字符串集合的标准操作接口。
+ * 支持添加、删除、包含判断、清空和转换为列表等操作。
+ */
+
 package io.agentscope.runtime.common.collections;
 
 import java.util.List;
 
 /**
- * Abstract base class for set collection implementations.
+ * 集合抽象基类。
+ *
+ * <p>角色：定义字符串集合的标准操作契约，为 Agent 运行时提供
+ * 去重集合的数据结构能力。</p>
+ *
+ * <p>设计模式：策略模式 —— 不同的后端实现（如 {@link InMemorySetCollection}、Redis 等）
+ * 提供各自的集合方案，但对外暴露统一的接口。</p>
  */
 public abstract class SetCollection {
     /**

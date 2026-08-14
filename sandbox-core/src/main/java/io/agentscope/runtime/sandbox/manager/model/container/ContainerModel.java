@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ContainerModel.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.model.container
+ *
+ * 容器模型，表示一个沙箱容器的完整运行时状态和配置。
+ */
+
 package io.agentscope.runtime.sandbox.manager.model.container;
 
 import java.util.List;

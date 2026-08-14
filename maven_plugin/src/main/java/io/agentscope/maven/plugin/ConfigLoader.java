@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ConfigLoader.java
+ * 模块: maven_plugin
+ * 包: io.agentscope.maven.plugin
+ *
+ * ConfigLoader，配置类。
+ */
+
 package io.agentscope.maven.plugin;
 
 import io.agentscope.maven.plugin.config.AgentRunConfig;

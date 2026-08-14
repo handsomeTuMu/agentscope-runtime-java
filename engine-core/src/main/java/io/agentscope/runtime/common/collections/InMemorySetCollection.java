@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: InMemorySetCollection.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.common.collections
+ *
+ * SetCollection 的内存实现版本，使用 HashSet 作为底层存储。
+ * 提供标准的字符串集合操作，包括添加、删除、包含判断等。
+ */
+
 package io.agentscope.runtime.common.collections;
 
 import java.util.ArrayList;

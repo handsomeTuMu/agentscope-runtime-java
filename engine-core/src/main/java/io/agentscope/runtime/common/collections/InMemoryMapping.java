@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: InMemoryMapping.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.common.collections
+ *
+ * Mapping 的内存实现版本，使用 HashMap 存储键值对。
+ * 适用于开发测试场景或不需要持久化的短期运行场景。
+ */
+
 package io.agentscope.runtime.common.collections;
 
 import java.util.ArrayList;

@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ResponseApiHandler.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.responseapi
+ *
+ * ResponseApiHandler。
+ */
+
 package io.agentscope.runtime.protocol.responseapi;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: MobileSandbox.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.box
+ *
+ * 移动端沙箱实现，提供移动设备模拟的隔离环境。
+ */
+
 package io.agentscope.runtime.sandbox.box;
 
 import io.agentscope.runtime.sandbox.box.model.HostPrerequisiteError;

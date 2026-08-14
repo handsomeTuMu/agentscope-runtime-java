@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: WriteFileTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.fs
+ *
+ * 写入文件工具，向沙箱文件系统中写入或覆盖文件。
+ */
+
 package io.agentscope.runtime.sandbox.tools.fs;
 
 import io.agentscope.runtime.sandbox.box.FilesystemSandbox;

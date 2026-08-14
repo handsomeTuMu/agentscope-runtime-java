@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: APPWorldSandbox.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.box
+ *
+ * APPWorld 沙箱实现，为 APPWorld 基准测试提供专用隔离环境。
+ */
+
 package io.agentscope.runtime.sandbox.box;
 
 import io.agentscope.runtime.sandbox.manager.SandboxService;

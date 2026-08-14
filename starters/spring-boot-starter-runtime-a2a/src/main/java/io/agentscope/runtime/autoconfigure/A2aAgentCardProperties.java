@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: A2aAgentCardProperties.java
+ * 模块: starters/spring-boot-starter-runtime-a2a
+ * 包: io.agentscope.runtime.autoconfigure
+ *
+ * A2aAgentCardProperties。
+ */
+
 package io.agentscope.runtime.autoconfigure;
 
 import io.a2a.spec.AgentInterface;

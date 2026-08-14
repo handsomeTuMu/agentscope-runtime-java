@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: GetFileInfoTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.fs
+ *
+ * 文件信息工具，获取沙箱文件系统中文件的详细信息（大小、修改时间等）。
+ */
+
 package io.agentscope.runtime.sandbox.tools.fs;
 
 import io.agentscope.runtime.sandbox.box.FilesystemSandbox;

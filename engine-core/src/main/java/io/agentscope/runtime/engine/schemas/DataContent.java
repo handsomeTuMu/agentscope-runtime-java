@@ -14,15 +14,30 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: DataContent.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.schemas
+ *
+ * 结构化数据内容类，表示 Agent 消息中的键值对形式的结构化数据。
+ * 继承自 {@link Content}，用于传递函数调用参数、工具执行结果等结构化信息。
+ */
+
 package io.agentscope.runtime.engine.schemas;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Map;
 
 /**
- * Data content in a message (for function calls, etc.).
+ * 结构化数据内容模型。
+ *
+ * <p>角色：表示 Agent 消息中的结构化数据内容（Map 格式），
+ * 用于传递函数调用、工具执行结果等需要结构化表示的信息。</p>
+ *
+ * <p>设计模式：值对象模式（Value Object）—— 继承 Content 并扩展 Map 数据字段。</p>
  */
 public class DataContent extends Content {
+    /** 结构化数据内容（键值对形式） */
     @JsonProperty("data")
     private Map<String, Object> data;
     

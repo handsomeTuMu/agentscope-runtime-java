@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AsFsGetFileInfo.java
+ * 模块: agents/agentscope
+ * 包: io.agentscope.runtime.engine.agents.agentscope.tools.fs
+ *
+ * AsFsGetFileInfo。
+ */
+
 package io.agentscope.runtime.engine.agents.agentscope.tools.fs;
 
 import io.agentscope.core.message.ToolResultBlock;

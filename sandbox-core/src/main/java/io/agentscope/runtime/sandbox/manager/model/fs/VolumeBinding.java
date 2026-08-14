@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: VolumeBinding.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.model.fs
+ *
+ * 卷挂载绑定模型，定义容器卷挂载的宿主机路径和容器路径映射。
+ */
+
 package io.agentscope.runtime.sandbox.manager.model.fs;
 
 public class VolumeBinding {

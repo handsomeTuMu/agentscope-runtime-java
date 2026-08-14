@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: KubernetesClientStarter.java
+ * 模块: sandbox-extensions/kubernetes-extension
+ * 包: io.agentscope.runtime.sandbox.client.kubernetes
+ *
+ * KubernetesClientStarter，客户端类。
+ */
+
 package io.agentscope.runtime.sandbox.client.kubernetes;
 
 import io.agentscope.runtime.sandbox.manager.client.container.BaseClient;

@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: RemoteHttpClient.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.remote
+ *
+ * 远程 HTTP 客户端，用于与远程沙箱服务进行 HTTP 通信。
+ */
+
 package io.agentscope.runtime.sandbox.manager.remote;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

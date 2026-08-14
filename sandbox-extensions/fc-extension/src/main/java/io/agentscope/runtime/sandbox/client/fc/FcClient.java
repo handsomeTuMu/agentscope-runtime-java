@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: FcClient.java
+ * 模块: sandbox-extensions/fc-extension
+ * 包: io.agentscope.runtime.sandbox.client.fc
+ *
+ * FcClient，客户端类。
+ */
+
 package io.agentscope.runtime.sandbox.client.fc;
 
 import com.aliyun.fc20230330.Client;

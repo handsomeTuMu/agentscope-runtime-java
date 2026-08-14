@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: LocalStorageManager.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.fs.local
+ *
+ * 本地存储管理器，基于本地文件系统实现文件存储和检索。
+ */
+
 package io.agentscope.runtime.sandbox.manager.fs.local;
 
 import io.agentscope.runtime.sandbox.manager.fs.FileSystemConfig;

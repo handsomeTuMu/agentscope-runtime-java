@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: Constants.java
+ * 模块: starters/spring-boot-starter-runtime-a2a
+ * 包: io.agentscope.runtime.autoconfigure
+ *
+ * Constants。
+ */
+
 package io.agentscope.runtime.autoconfigure;
 
 /**

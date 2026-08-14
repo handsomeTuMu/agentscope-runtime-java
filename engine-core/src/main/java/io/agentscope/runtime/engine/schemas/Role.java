@@ -14,15 +14,33 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: Role.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.schemas
+ *
+ * 消息角色常量类，定义 Agent 对话中消息的发送者角色。
+ * 这些常量用于 Message 对象的 role 字段。
+ */
+
 package io.agentscope.runtime.engine.schemas;
 
 /**
- * Role constants for messages.
+ * 消息角色常量类。
+ *
+ * <p>角色：集中定义 Agent 对话中所有可能的消息发送者角色常量，
+ * 避免���法字符串的散布。这些角色标识消息来源，影响 Agent 的行为。</p>
+ *
+ * <p>设计模式：常量类（Constants Class）—— 工具类模式，私有构造函数防止实例化。</p>
  */
 public class Role {
+    /** 助手角色 —— Agent/LLM 生成的回复消息 */
     public static final String ASSISTANT = "assistant";
+    /** 用户角色 —— 终端用户发送的输入消息 */
     public static final String USER = "user";
+    /** 系统角色 —— 系统指令消息，用于设定 Agent 的行为规范 */
     public static final String SYSTEM = "system";
+    /** 工具角色 —— 工具/函数调用的返回结果消息 */
     public static final String TOOL = "tool";
     
     private Role() {

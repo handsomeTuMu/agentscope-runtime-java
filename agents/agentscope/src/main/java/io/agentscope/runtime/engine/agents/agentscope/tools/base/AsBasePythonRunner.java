@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AsBasePythonRunner.java
+ * 模块: agents/agentscope
+ * 包: io.agentscope.runtime.engine.agents.agentscope.tools.base
+ *
+ * AsBasePythonRunner。
+ */
+
 package io.agentscope.runtime.engine.agents.agentscope.tools.base;
 
 import io.agentscope.core.message.ToolResultBlock;

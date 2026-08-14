@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: DeployerMojo.java
+ * 模块: maven_plugin
+ * 包: io.agentscope.maven.plugin
+ *
+ * DeployerMojo，Maven 插件入口类（Mojo），负责将 Agent 应用打包并部署到目标环境（Docker/K8s/阿里云百炼）。
+ * 作为 Maven 构建生命周期的一部分执行，协调 DockerBuildService、K8sDeployService 等完成部署流程。
+ */
+
 package io.agentscope.maven.plugin;
 
 import io.agentscope.maven.plugin.config.AgentRunConfig;

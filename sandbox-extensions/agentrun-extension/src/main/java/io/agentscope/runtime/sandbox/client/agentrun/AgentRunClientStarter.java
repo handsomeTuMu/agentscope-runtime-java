@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AgentRunClientStarter.java
+ * 模块: sandbox-extensions/agentrun-extension
+ * 包: io.agentscope.runtime.sandbox.client.agentrun
+ *
+ * AgentRunClientStarter，客户端类。
+ */
+
 package io.agentscope.runtime.sandbox.client.agentrun;
 
 import io.agentscope.runtime.sandbox.manager.client.container.BaseClientStarter;

@@ -13,6 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: SessionHistoryService.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.services.memory.service
+ *
+ * 会话历史管理服务接口，定义对话会话的标准 CRUD 操作。
+ * 负责创建、检索、删除会话以及向会话追加消息。
+ * 实现类包括 InMemorySessionHistoryService、RedisSessionHistoryService 等。
+ */
 package io.agentscope.runtime.engine.services.memory.service;
 
 import java.util.List;
@@ -24,8 +33,12 @@ import io.agentscope.runtime.engine.schemas.Session;
 import io.agentscope.runtime.engine.shared.Service;
 
 /**
- * Session history management service interface
- * Defines standard interfaces for creating, retrieving, updating, and deleting dialogue sessions
+ * 会话历史管理服务接口。
+ *
+ * <p>角色：定义对话会话（Session）的标准管理操作，包括创建、检索、删除
+ * 和列出会话，以及向会话追加消息历史。所有方法返回 CompletableFuture（异步设计）。</p>
+ *
+ * <p>设计模式：策略模式 —— 不同的后端实现提供各自的会话存储方案。</p>
  */
 public interface SessionHistoryService extends Service {
     

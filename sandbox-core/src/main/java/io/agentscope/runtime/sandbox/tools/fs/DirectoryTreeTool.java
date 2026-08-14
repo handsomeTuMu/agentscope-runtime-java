@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: DirectoryTreeTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.fs
+ *
+ * 目录树工具，以树形结构列出沙箱文件系统中的目录。
+ */
+
 package io.agentscope.runtime.sandbox.tools.fs;
 
 import io.agentscope.runtime.sandbox.box.FilesystemSandbox;

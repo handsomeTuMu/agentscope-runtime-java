@@ -13,6 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * 文件名称: LocalDeployManager.java
+ * 模块: web
+ * 包: io.agentscope.runtime
+ *
+ * 本地部署管理器，实现 {@link DeployManager} 接口。
+ * 负责在本地启动 Spring Boot Servlet 服务器来部署 Agent Runner。
+ * 支持多协议（A2A、ResponseAPI）端点注册、CORS 配置、自定义端点、中间件等功能。
+ * 使用建造者模式构建，支持灵活的配置组合。
+ */
 package io.agentscope.runtime;
 
 import io.agentscope.runtime.app.AgentApp;
@@ -47,6 +58,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+/**
+ * 本地部署管理器 —— 实现 {@link DeployManager} 接口。
+ *
+ * <p>角色：在本地启动 Spring Boot Servlet 服务器来部署 Agent Runner，
+ * 注册所有必要的 Spring Bean（Runner、DeployProperties、协议控制器等），
+ * 并配置 CORS、自定义端点和中间件。</p>
+ *
+ * <p>职责：</p>
+ * <ul>
+ *   <li>启动 Spring Boot Servlet 应用上下文</li>
+ *   <li>将 Runner 实例注册为 Spring Bean</li>
+ *   <li>按协议配置扫描对应的控制器包</li>
+ *   <li>注册 CORS 配置、自定义端点路由和过滤器中间件</li>
+ *   <li>管理应用上下文的生命周期（启动/关闭）</li>
+ * </ul>
+ *
+ * <p>设计模式：建造者模式 —— 通过 {@link LocalDeployerManagerBuilder} 灵活构建实例。</p>
+ */
 public class LocalDeployManager implements DeployManager {
 	private static final Logger logger = LoggerFactory.getLogger(LocalDeployManager.class);
 

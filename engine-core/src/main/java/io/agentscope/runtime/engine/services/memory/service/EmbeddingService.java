@@ -13,13 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: EmbeddingService.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.services.memory.service
+ *
+ * 文本嵌入服务接口，提供将文本转换为向量嵌入的能力。
+ * 用于长期记忆服务中的语义搜索，支持余弦相似度和欧几里得距离计算。
+ * 实现类包括 SimpleEmbeddingService 等。
+ */
 package io.agentscope.runtime.engine.services.memory.service;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * Text embedding service interface
+ * 文本嵌入服务接口。
+ *
+ * <p>角色：将文本转换为向量嵌入（embedding），用于长期记忆服务中的
+ * 语义相似度搜索。提供文本嵌入、余弦相似度和欧几里得距离计算等功能。</p>
+ *
+ * <p>设计模式：策略模式 —— 不同的实现可对接不同的嵌入模型（如 OpenAI、本地模型等）。</p>
  */
 public interface EmbeddingService {
     

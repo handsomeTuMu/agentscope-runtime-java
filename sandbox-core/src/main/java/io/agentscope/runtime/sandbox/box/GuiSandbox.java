@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: GuiSandbox.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.box
+ *
+ * GUI 沙箱实现，提供图形界面交互的隔离环境。
+ */
+
 package io.agentscope.runtime.sandbox.box;
 
 import io.agentscope.runtime.sandbox.manager.SandboxService;

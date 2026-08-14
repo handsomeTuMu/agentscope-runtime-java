@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AsBrowserTabSelector.java
+ * 模块: agents/agentscope
+ * 包: io.agentscope.runtime.engine.agents.agentscope.tools.browser
+ *
+ * AsBrowserTabSelector。
+ */
+
 package io.agentscope.runtime.engine.agents.agentscope.tools.browser;
 
 import io.agentscope.core.message.ToolResultBlock;

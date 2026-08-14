@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: StateService.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.services.agent_state
+ *
+ * Agent 状态管理服务抽象基类。
+ * 负责存储和管理 Agent 的状态数据，按 user_id、session_id 和 round_id 三级组织。
+ * 支持状态的保存、检索、列出和删除操作，所有方法返回 CompletableFuture（异步设计）。
+ */
+
 package io.agentscope.runtime.engine.services.agent_state;
 
 import java.util.Map;
@@ -22,19 +32,29 @@ import java.util.concurrent.CompletableFuture;
 import io.agentscope.runtime.engine.services.ServiceWithLifecycleManager;
 
 /**
- * Abstract base class for agent state management services.
- * 
- * <p>Stores and manages agent states organized by user_id, session_id,
- * and round_id. Supports saving, retrieving, listing, and deleting states.
- * 
- * <p><b>Usage Example:</b>
+ * Agent 状态管理服务抽象基类。
+ *
+ * <p>角色：为 Agent 运行时提供状态持久化能力。Agent 的状态（如对话上下文、
+ * 工作内存等）按 user_id -> session_id -> round_id 三级结构组织存储。</p>
+ *
+ * <p>职责：</p>
+ * <ul>
+ *   <li>保存 Agent 的序列化状态数据</li>
+ *   <li>按用户、会话、轮次检索状态</li>
+ *   <li>支持自动轮次 ID 分配</li>
+ * </ul>
+ *
+ * <p>设计模式：策略模式 —— 不同的后端实现（如 {@link InMemoryStateService}）
+ * 提供各自的状态存储方案，但对外暴露统一的异步接口。</p>
+ *
+ * <p><b>使用示例：</b>
  * <pre>{@code
  * StateService stateService = new InMemoryStateService();
  * stateService.start().join();
- * 
+ *
  * // Save state
  * int roundId = stateService.saveState("user_123", stateMap, "session_456", null).join();
- * 
+ *
  * // Export state
  * Map<String, Object> state = stateService.exportState("user_123", "session_456", null).join();
  * }</pre>

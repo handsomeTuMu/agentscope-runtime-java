@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: HostPrerequisiteError.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.box.model
+ *
+ * 宿主机前置条件错误模型，表示沙箱启动前的宿主机环境检查失败信息。
+ */
+
 package io.agentscope.runtime.sandbox.box.model;
 
 /**

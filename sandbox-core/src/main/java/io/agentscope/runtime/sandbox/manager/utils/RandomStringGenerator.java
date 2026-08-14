@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: RandomStringGenerator.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.utils
+ *
+ * 随机字符串生成器，使用 SecureRandom 生成安全的随机字符串。
+ * 用于生成沙箱 ID、容器名称等需要唯一性的标识符。
+ */
 package io.agentscope.runtime.sandbox.manager.utils;
 
 import java.security.SecureRandom;

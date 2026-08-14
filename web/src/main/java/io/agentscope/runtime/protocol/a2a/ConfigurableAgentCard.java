@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ConfigurableAgentCard.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.a2a
+ *
+ * ConfigurableAgentCard，配置类。
+ */
+
 package io.agentscope.runtime.protocol.a2a;
 
 import io.a2a.spec.AgentInterface;

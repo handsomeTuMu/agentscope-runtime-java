@@ -1,3 +1,14 @@
+/**
+ * 文件名称: MemoryService.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.services.memory.service
+ *
+ * 长期记忆服务接口，用于存储和检索 Agent 的长期记忆。
+ * 记忆按用户 ID 组织，支持两种管理策略：
+ * 1. 按会话 ID 分组（会话 ID 隶属于用户 ID）
+ * 2. 仅按用户 ID 分组
+ * 支持数据库存储或内存存储，具体实现包括 InMemoryMemoryService、RedisMemoryService 等。
+ */
 package io.agentscope.runtime.engine.services.memory.service;
 
 /*
@@ -25,11 +36,20 @@ import io.agentscope.runtime.engine.schemas.Message;
 import io.agentscope.runtime.engine.shared.Service;
 
 /**
- * Memory service interface
- * Used for storing and retrieving long-term memories, supports database or in-memory storage
- * Memory is organized by user ID and supports two management strategies:
- * 1. Messages grouped by session ID (session ID under user ID)
- * 2. Messages grouped only by user ID
+ * 长期记忆服务接口。
+ *
+ * <p>角色：为 Agent 提供跨会话的长期记忆存储和检索能力。
+ * 记忆按用户 ID 组织，可选择按会话 ID 进一步分组。</p>
+ *
+ * <p>职责：</p>
+ * <ul>
+ *   <li>添加记忆（将消息存入长期记忆）</li>
+ *   <li>搜索记忆（基于查询消息进行语义搜索）</li>
+ *   <li>列出记忆（分页查询用户的记忆列表）</li>
+ *   <li>删除记忆（清除指定用户或会话的记忆）</li>
+ * </ul>
+ *
+ * <p>设计模式：策略模式 —— 不同的后端实现提供各自的记忆存储方案。</p>
  */
 public interface MemoryService extends Service {
     

@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: ResponseReasoning.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.responseapi.model
+ *
+ * ResponseReasoning。
+ */
+
 package io.agentscope.runtime.protocol.responseapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

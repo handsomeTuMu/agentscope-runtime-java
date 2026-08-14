@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: PortManager.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.utils
+ *
+ * 线程安全的端口分配管理器，负责端口资源的分配、注册和释放。
+ * 管理端口范围（PortRange），避免端口冲突，支持按容器名追踪端口归属。
+ */
 package io.agentscope.runtime.sandbox.manager.utils;
 
 import io.agentscope.runtime.sandbox.manager.model.container.PortRange;
@@ -27,8 +35,21 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Thread-safe port allocation manager
- * Manages port allocation and release to avoid port conflicts
+ * 线程安全的端口分配管理器。
+ *
+ * <p>角色：管理沙箱容器的端口分配，避免端口冲突。在 Docker 容器创建时，
+ * 需要分配宿主机端口映射到容器内端口，PortManager 负责分配可用的宿主机端口。</p>
+ *
+ * <p>职责：</p>
+ * <ul>
+ *   <li>在指定端口范围内分配空闲端口</li>
+ *   <li>按容器名注册和追踪端口归属</li>
+ *   <li>释放单个端口或按容器名批量释放端口</li>
+ *   <li>查询已分配和可用端口数量</li>
+ * </ul>
+ *
+ * <p>设计模式：资源池模式 —— 集中管理端口资源，分配和回收；
+ * 使用 ConcurrentHashMap 和 synchronized 保证线程安全。</p>
  */
 public class PortManager {
     private static final Logger logger = LoggerFactory.getLogger(PortManager.class);

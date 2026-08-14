@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: DockerClient.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.client.container.docker
+ *
+ * Docker 容器客户端，通过 Docker API 管理容器生命周期。
+ */
+
 package io.agentscope.runtime.sandbox.manager.client.container.docker;
 
 import com.github.dockerjava.api.command.CreateContainerCmd;

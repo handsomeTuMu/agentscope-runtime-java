@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: LongTermMemoryAdapter.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.adapters.agentscope.memory
+ *
+ * AgentScope 长期记忆适配器，将运行时的 MemoryService 适配为
+ * AgentScope 框架的 LongTermMemory 接口。负责跨会话的长期记忆存储和检索。
+ */
+
 package io.agentscope.runtime.adapters.agentscope.memory;
 
 import io.agentscope.core.message.Msg;

@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: SandboxMap.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.utils
+ *
+ * 沙箱映射表接口，维护沙箱 ID 到容器模型的映射关系。
+ * 支持沙箱实例的注册、查询、移除和批量管理操作。
+ * 实现类包括 InMemorySandboxMap（内存版本）和 RedisSandboxMap（Redis 版本）。
+ */
+
 package io.agentscope.runtime.sandbox.manager.utils;
 
 import io.agentscope.runtime.sandbox.manager.model.container.ContainerModel;

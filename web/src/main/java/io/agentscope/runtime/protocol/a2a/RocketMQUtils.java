@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: RocketMQUtils.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.a2a
+ *
+ * RocketMQUtils。
+ */
+
 package io.agentscope.runtime.protocol.a2a;
 
 import java.nio.charset.StandardCharsets;

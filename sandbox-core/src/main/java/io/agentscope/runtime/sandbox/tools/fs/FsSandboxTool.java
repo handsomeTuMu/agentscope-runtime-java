@@ -30,6 +30,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: FsSandboxTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.fs
+ *
+ * 文件系统沙箱工具基类，为所有文件系统操作工具提供基础实现。
+ */
+
 package io.agentscope.runtime.sandbox.tools.fs;
 
 

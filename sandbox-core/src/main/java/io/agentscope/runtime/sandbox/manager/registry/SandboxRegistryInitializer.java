@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: SandboxRegistryInitializer.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.registry
+ *
+ * 沙箱注册表初始化器，在应用启动时初始化沙箱注册表。
+ */
+
 package io.agentscope.runtime.sandbox.manager.registry;
 
 import org.slf4j.Logger;

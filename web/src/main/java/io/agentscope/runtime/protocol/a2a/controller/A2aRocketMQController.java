@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: A2aRocketMQController.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.a2a.controller
+ *
+ * A2aRocketMQController，REST API 控制器类。
+ */
+
 package io.agentscope.runtime.protocol.a2a.controller;
 
 import java.nio.charset.StandardCharsets;

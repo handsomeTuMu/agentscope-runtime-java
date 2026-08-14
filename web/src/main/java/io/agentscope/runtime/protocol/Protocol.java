@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: Protocol.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol
+ *
+ * Protocol。
+ */
+
 package io.agentscope.runtime.protocol;
 
 public enum Protocol {

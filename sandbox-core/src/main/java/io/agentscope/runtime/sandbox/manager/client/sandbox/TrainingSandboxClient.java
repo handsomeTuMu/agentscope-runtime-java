@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: TrainingSandboxClient.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.client.sandbox
+ *
+ * 训练沙箱客户端，与训练沙箱实例交互，支持训练相关操作。
+ */
+
 package io.agentscope.runtime.sandbox.manager.client.sandbox;
 
 import com.fasterxml.jackson.core.type.TypeReference;

@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: DeployProperties.java
+ * 模块: web
+ * 包: io.agentscope.runtime.autoconfigure
+ *
+ * DeployProperties。
+ */
+
 package io.agentscope.runtime.autoconfigure;
 
 import java.util.Objects;

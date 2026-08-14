@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: A2aProtocolConfig.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.a2a
+ *
+ * A2aProtocolConfig，配置类。
+ */
+
 package io.agentscope.runtime.protocol.a2a;
 
 import io.agentscope.runtime.protocol.Protocol;

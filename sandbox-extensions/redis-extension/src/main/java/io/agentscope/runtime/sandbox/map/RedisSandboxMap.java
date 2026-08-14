@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: RedisSandboxMap.java
+ * 模块: sandbox-extensions/redis-extension
+ * 包: io.agentscope.runtime.sandbox.map
+ *
+ * RedisSandboxMap，沙箱实现类。
+ */
+
 package io.agentscope.runtime.sandbox.map;
 
 import com.fasterxml.jackson.core.JsonProcessingException;

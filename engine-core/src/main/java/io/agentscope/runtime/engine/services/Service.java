@@ -14,46 +14,56 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: Service.java
+ * 模块: engine-core
+ * 包: io.agentscope.runtime.engine.services
+ *
+ * 服务基础接口，定义所有引擎服务必须实现的生命周期方法（启动、停止、健康检查）。
+ * 该接口采用同步设计，适用于不需要异步操作的场景。
+ */
+
 package io.agentscope.runtime.engine.services;
 
 /**
- * Abstract base class for services.
- * 
- * <p>This class defines the interface that all services must implement.
- * Services provide lifecycle management (start, stop, health check) and
- * can be used with try-with-resources pattern for automatic cleanup.
- * 
- * <p><b>Usage Example:</b>
+ * 服务接口（同步版本）。
+ *
+ * <p>角色：定义所有引擎服务（如状态服务、内存服务、会话历史服务等）的统一契约。
+ * 每个服务都必须实现启动、停止和健康检查三个生命周期方法。</p>
+ *
+ * <p>设计模式：策略模式 —— 不同的服务实现提供各自的行为，但对外暴露统一的接口。</p>
+ *
+ * <p><b>使用示例：</b>
  * <pre>{@code
  * Service service = new MyService();
- * 
- * // Manual lifecycle management
- * service.start().join();
+ *
+ * // 手动生命周期管理
+ * service.start();
  * try {
- *     // Use service
- *     boolean healthy = service.health().join();
+ *     // 使用服务
+ *     boolean healthy = service.health();
  * } finally {
- *     service.stop().join();
+ *     service.stop();
  * }
  * }</pre>
  */
 public interface Service {
-    
+
     /**
-	 * Starts the service, initializing any necessary resources or connections.
-	 */
+     * 启动服务，初始化必要的资源或连接。
+     */
     void start();
-    
+
     /**
-	 * Stops the service, releasing any acquired resources.
-	 */
+     * 停止服务，释放已获取的资源。
+     */
     void stop();
-    
+
     /**
-	 * Checks the health of the service.
-	 *
-	 * @return
-	 */
+     * 检查服务的健康状态。
+     *
+     * @return true 表示服务健康，false 表示服务不可用
+     */
     boolean health();
 }
 

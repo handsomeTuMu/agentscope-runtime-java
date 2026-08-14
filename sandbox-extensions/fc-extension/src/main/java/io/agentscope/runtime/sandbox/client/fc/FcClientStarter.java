@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: FcClientStarter.java
+ * 模块: sandbox-extensions/fc-extension
+ * 包: io.agentscope.runtime.sandbox.client.fc
+ *
+ * FcClientStarter，客户端类。
+ */
+
 package io.agentscope.runtime.sandbox.client.fc;
 
 import io.agentscope.runtime.sandbox.manager.client.container.BaseClient;

@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: BaseClient.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.manager.client.container
+ *
+ * 容器客户端抽象基类，定义了容器生命周期管理的标准操作接口。
+ * 包括创建、启动、停止、移除容器等操作，以及端口映射和卷挂载管理。
+ * 具体实现包括 DockerClient（Docker 容器）、AgentBayClient 等。
+ */
+
 package io.agentscope.runtime.sandbox.manager.client.container;
 
 

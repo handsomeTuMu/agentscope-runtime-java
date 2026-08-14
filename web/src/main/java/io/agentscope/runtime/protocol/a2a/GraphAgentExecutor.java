@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: GraphAgentExecutor.java
+ * 模块: web
+ * 包: io.agentscope.runtime.protocol.a2a
+ *
+ * GraphAgentExecutor。
+ */
+
 package io.agentscope.runtime.protocol.a2a;
 
 import io.a2a.A2A;

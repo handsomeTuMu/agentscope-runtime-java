@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AgentRunConfig.java
+ * 模块: maven_plugin
+ * 包: io.agentscope.maven.plugin.config
+ *
+ * AgentRunConfig，配置类。
+ */
+
 package io.agentscope.maven.plugin.config;
 
 import java.util.ArrayList;

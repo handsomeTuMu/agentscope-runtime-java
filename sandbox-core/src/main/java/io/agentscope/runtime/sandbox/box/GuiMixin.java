@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: GuiMixin.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.box
+ *
+ * GUI 混合类，为 GUI 沙箱提供图形界面交互功能的混入实现。
+ */
+
 package io.agentscope.runtime.sandbox.box;
 
 

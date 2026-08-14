@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/**
+ * 文件名称: AgentBaySandbox.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.box
+ *
+ * AgentBay 沙箱实现，基于 AgentBay 平台提供容器化隔离环境。
+ */
+
 package io.agentscope.runtime.sandbox.box;
 
 import com.aliyun.agentbay.browser.ActResult;

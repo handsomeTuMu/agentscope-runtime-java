@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * 文件名称: RunShellCommandTool.java
+ * 模块: sandbox-core
+ * 包: io.agentscope.runtime.sandbox.tools.base
+ *
+ * Shell 命令执行工具，在沙箱中执行 Shell 命令并返回执行结果。
+ */
+
 package io.agentscope.runtime.sandbox.tools.base;
 
 import io.agentscope.runtime.sandbox.box.BaseSandbox;
